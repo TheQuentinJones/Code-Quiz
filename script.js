@@ -10,7 +10,7 @@ function setTime() {
         secondsLeft--;
         timeLeft.textContent = secondsLeft;
 
-        if(secondsLeft === 0) {
+        if(secondsLeft <= 0) {
 
 
             clearInterval(timerInterval);
@@ -31,7 +31,72 @@ function sendMessage() {
 
 var startGame = document.querySelector("#start-game")
 
-startGame.addEventListener("click", setTime())
+startGame.addEventListener("click", function () {
+
+    secondsLeft = 60
+    
+    setTime()
+    setQuestions()
+
+}
+
+);
+
+
+// Selecting the proper queries in the HTML
+
+var questionS = document.querySelector("#questions")
+
+var answerA = document.querySelector("#answer-a");
+
+var answerB = document.querySelector("#answer-b");
+
+var answerC = document.querySelector("#answer-c");
+
+var answerD = document.querySelector("#answer-d");
+
+var numbers = [1, 2, 3]
+
+
+
+
+// Questions and answer Arrays
+
+var questionsNumber = ["Question " + numbers]
+
+var questionArray = ["What does HTML stand for?", "What do we use CSS for?", "Is Java the same as Javascript?"]
+
+var answerAarray = ["HyperLink Text Message Lingo", "Learning to ride a bicycle", "No"]
+
+var answerBarray = ["HyperSleep Tenacious Messaging Link", "Cleaning the house", "Yes"]
+
+var answerCarray = ["Hypertext Markup Language", "Styling our website", "Maybe"]
+
+var answerDarray = ["All of the above", "All of the above", "I am still not sure"]
+
+
+function setQuestions() {
+
+ var setNav = document.getElementById("answers")
+
+    if (setNav.style.display === "none") {
+
+        setNav.setAttribute("display", "block")
+    };
+
+    questionS.textContent = [questionArray]
+    answerA.textContent = [answerAarray]
+    answerB.textContent = [answerBarray]
+    answerC.textContent = [answerCarray]
+    answerD.textContent = [answerDarray]
+
+    console.log()
+
+    
+
+}
+
+
 
 
 
