@@ -36,7 +36,7 @@ startGame.addEventListener("click", function () {
     secondsLeft = 60
     
     setTime()
-    setQuestions()
+    firstQuestion()
 
 }
 
@@ -54,6 +54,8 @@ var answerB = document.querySelector("#answer-b");
 var answerC = document.querySelector("#answer-c");
 
 var answerD = document.querySelector("#answer-d");
+
+var correctNess = document.querySelector("#correctness");
 
 var numbers = [1, 2, 3]
 
@@ -75,22 +77,96 @@ var answerCarray = ["Hypertext Markup Language", "Styling our website", "Maybe"]
 var answerDarray = ["All of the above", "All of the above", "I am still not sure"]
 
 
-function setQuestions() {
+function firstQuestion() {
 
- var setNav = document.getElementById("answers")
+ 
 
-    if (setNav.style.display === "none") {
 
-        setNav.setAttribute("display", "block")
-    };
-
-    questionS.textContent = [questionArray]
-    answerA.textContent = [answerAarray]
-    answerB.textContent = [answerBarray]
-    answerC.textContent = [answerCarray]
-    answerD.textContent = [answerDarray]
+    questionS.textContent = ["Question " + numbers[0] + ". " + questionArray[0]]
+    answerA.textContent = [answerAarray[0]]
+    answerB.textContent = [answerBarray[0]]
+    answerC.textContent = [answerCarray[0]]
+    answerD.textContent = [answerDarray[0]]
 
     console.log()
+
+    
+    // answerA.addEventListener("click", )
+
+    // answerB.addEventListener("click",)
+
+    answerC.addEventListener("click", function() {
+
+        correctNess.textContent = "Correct!"
+
+        secondQuestion()
+    })
+
+    // answerD.addEventListener("click",)
+
+    
+
+}
+
+function secondQuestion() {
+
+
+   
+       questionS.textContent = ["Question " + numbers[1] + ". " + questionArray[1]]
+       answerA.textContent = [answerAarray[1]]
+       answerB.textContent = [answerBarray[1]]
+       answerC.textContent = [answerCarray[1]]
+       answerD.textContent = [answerDarray[1]]
+   
+       console.log()
+   
+       
+    //    answerA.addEventListener("click", )
+   
+    //    answerB.addEventListener("click",)
+   
+       answerC.addEventListener("click", function() {
+   
+           
+           correctNess.textContent = "Correct!"
+   
+           thirdQuestion()
+       })
+   
+    //    answerD.addEventListener("click",)
+   
+       
+   
+}
+
+
+function thirdQuestion() {
+
+
+   
+    questionS.textContent = ["Question " + numbers[2] + ". " + questionArray[2]]
+    answerA.textContent = [answerAarray[2]]
+    answerB.textContent = [answerBarray[2]]
+    answerC.textContent = [answerCarray[2]]
+    answerD.textContent = [answerDarray[2]]
+
+    console.log()
+
+    
+    // answerA.addEventListener("click", )
+
+    // answerB.addEventListener("click",)
+
+    answerC.addEventListener("click", function() {
+
+        
+        correctNess.textContent = "Correct!"
+
+        var quizEl = document.getElementsByClassName("quiz")
+
+         })
+
+    // answerD.addEventListener("click",)
 
     
 
