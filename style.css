@@ -59,8 +59,18 @@ button:hover {
 
 nav {
 
-    display:inline-block;
-    
+    display:flexbox;
+    justify-content: space-around;
+    align-items: center;
+ 
+
+}
+
+#end-game {
+
+    display: none;
+
+
 
 }
 

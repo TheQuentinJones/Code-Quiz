@@ -4,6 +4,10 @@ var timeLeft = document.querySelector("#time-left");
 
 var secondsLeft = 60;
 
+// score
+
+var scorePoints = 0;
+
 function setTime() {
 
     var timerInterval = setInterval(function() {
@@ -33,7 +37,7 @@ var startGame = document.querySelector("#start-game")
 
 startGame.addEventListener("click", function () {
 
-    secondsLeft = 60
+    secondsLeft = 30
     
     setTime()
     firstQuestion()
@@ -47,13 +51,15 @@ startGame.addEventListener("click", function () {
 
 var questionS = document.querySelector("#questions")
 
-var answerA = document.querySelector("#answer-a");
+// var answerA = document.querySelector("#answer-a");
 
-var answerB = document.querySelector("#answer-b");
+// var answerB = document.querySelector("#answer-b");
 
-var answerC = document.querySelector("#answer-c");
+// var answerC = document.querySelector("#answer-c");
 
-var answerD = document.querySelector("#answer-d");
+// var answerD = document.querySelector("#answer-d");
+
+var ansChoicesSection = document.getElementById("answers")
 
 var correctNess = document.querySelector("#correctness");
 
@@ -79,68 +85,128 @@ var answerDarray = ["All of the above", "All of the above", "I am still not sure
 
 function firstQuestion() {
 
- 
+    var answerA = document.createElement("button")
+    var answerB = document.createElement("button")
+    var answerC = document.createElement("button")
+    var answerD = document.createElement("button")
 
 
-    questionS.textContent = ["Question " + numbers[0] + ". " + questionArray[0]]
-    answerA.textContent = [answerAarray[0]]
-    answerB.textContent = [answerBarray[0]]
-    answerC.textContent = [answerCarray[0]]
-    answerD.textContent = [answerDarray[0]]
+    questionS.textContent = "Question " + numbers[0] + ". " + questionArray[0]
+    answerA.textContent = answerAarray[0]
+    answerB.textContent = answerBarray[0]
+    answerC.textContent = answerCarray[0]
+    answerD.textContent = answerDarray[0]
 
-    console.log()
+   
 
     
-    // answerA.addEventListener("click", )
+    answerA.addEventListener("click", function() {
 
-    // answerB.addEventListener("click",)
+        correctNess.textContent = "Incorrect!! =["
 
-    answerC.addEventListener("click", function() {
-
-        correctNess.textContent = "Correct!"
-
+        
         secondQuestion()
     })
 
-    // answerD.addEventListener("click",)
+    answerB.addEventListener("click", function() {
 
+        correctNess.textContent = "Incorrect!! =["
+        
+        secondQuestion()
+    })
+
+    answerC.addEventListener("click", function() {
+
+        correctNess.textContent = "Correct!";
+        scorePoints++;
+
+        console.log(scorePoints)
+        
+        secondQuestion()
+    })
+
+    answerD.addEventListener("click", function() {
+
+        correctNess.textContent = "Incorrect!! =["
+        
+        secondQuestion()
+    })
+    ansChoicesSection.appendChild(answerA)
+    ansChoicesSection.appendChild(answerB)
+    ansChoicesSection.appendChild(answerC)
+    ansChoicesSection.appendChild(answerD)
+    
     
 
 }
 
 function secondQuestion() {
 
+    ansChoicesSection.innerHTML = "";
 
-   
-       questionS.textContent = ["Question " + numbers[1] + ". " + questionArray[1]]
+    var answerA = document.createElement("button")
+    var answerB = document.createElement("button")
+    var answerC = document.createElement("button")
+    var answerD = document.createElement("button")
+
+
+       questionS.textContent = "Question " + numbers[1] + ". " + questionArray[1]
        answerA.textContent = [answerAarray[1]]
        answerB.textContent = [answerBarray[1]]
        answerC.textContent = [answerCarray[1]]
        answerD.textContent = [answerDarray[1]]
    
-       console.log()
+       
    
        
-    //    answerA.addEventListener("click", )
+       answerA.addEventListener("click", function() {
+
+        correctNess.textContent = "Incorrect!! =["
+        
+        thirdQuestion()
+    })
    
-    //    answerB.addEventListener("click",)
+    answerB.addEventListener("click", function() {
+
+        correctNess.textContent = "Incorrect!! =["
+        
+        thirdQuestion()
+    })
    
        answerC.addEventListener("click", function() {
    
            
            correctNess.textContent = "Correct!"
+           scorePoints++;
+           console.log(scorePoints)
    
            thirdQuestion()
        })
    
-    //    answerD.addEventListener("click",)
+       answerD.addEventListener("click", function() {
+
+        correctNess.textContent = "Incorrect!! =["
+        
+        thirdQuestion()
+    })
    
+    ansChoicesSection.appendChild(answerA)
+    ansChoicesSection.appendChild(answerB)
+    ansChoicesSection.appendChild(answerC)
+    ansChoicesSection.appendChild(answerD)
        
    
 }
 
 
 function thirdQuestion() {
+
+    ansChoicesSection.innerHTML = "";
+
+    var answerA = document.createElement("button")
+    var answerB = document.createElement("button")
+    var answerC = document.createElement("button")
+    var answerD = document.createElement("button")
 
 
    
@@ -153,22 +219,67 @@ function thirdQuestion() {
     console.log()
 
     
-    // answerA.addEventListener("click", )
-
-    // answerB.addEventListener("click",)
-
-    answerC.addEventListener("click", function() {
+    answerA.addEventListener("click", function() {
 
         
         correctNess.textContent = "Correct!"
+        scorePoints++;
+        console.log(scorePoints)
 
-        var quizEl = document.getElementsByClassName("quiz")
+        
 
-         })
+        endGame()
 
-    // answerD.addEventListener("click",)
+        
+    })
+
+         
+         
+        
+    answerB.addEventListener("click", function() {
+
+            correctNess.textContent = "Incorrect!! =["
+            
+            endGame()
+    })
+
+    answerC.addEventListener("click", function() {
+
+        correctNess.textContent = "Incorrect!! =["
+        scorePoints++;
+        console.log(scorePoints)
+        
+        endGame()
+    })
 
     
+     answerD.addEventListener("click", function() {
+
+            correctNess.textContent = "Incorrect!! =["
+            
+            endGame()
+    })
+
+    ansChoicesSection.appendChild(answerA)
+    ansChoicesSection.appendChild(answerB)
+    ansChoicesSection.appendChild(answerC)
+    ansChoicesSection.appendChild(answerD)
+
+    
+
+}
+
+
+
+function endGame() {
+
+var endGame = document.querySelector("#end-game")
+var quizEl = document.querySelector(".quiz")
+
+    endGame.style.display = "block"
+    quizEl.style.display = "none"
+    console.log(scorePoints)
+
 
 }
 
