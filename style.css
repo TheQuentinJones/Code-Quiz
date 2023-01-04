@@ -69,7 +69,17 @@ nav {
 #end-game {
 
     display: none;
+    background-color: #191919;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+    height: 92vh;
+    width: 100vw;
 
+    padding: 50px;
+   
 
 
 }

@@ -2,7 +2,7 @@
 
 var timeLeft = document.querySelector("#time-left");
 
-var secondsLeft = 60;
+var secondsLeft = 30;
 
 // score
 
@@ -246,8 +246,7 @@ function thirdQuestion() {
     answerC.addEventListener("click", function() {
 
         correctNess.textContent = "Incorrect!! =["
-        scorePoints++;
-        console.log(scorePoints)
+
         
         endGame()
     })
@@ -258,6 +257,7 @@ function thirdQuestion() {
             correctNess.textContent = "Incorrect!! =["
             
             endGame()
+            
     })
 
     ansChoicesSection.appendChild(answerA)
@@ -273,15 +273,20 @@ function thirdQuestion() {
 
 function endGame() {
 
-var endGame = document.querySelector("#end-game")
-var quizEl = document.querySelector(".quiz")
+    var endGame = document.querySelector("#end-game")
+    var quizEl = document.querySelector(".quiz")
+    var endScore = document.querySelector("#end-score")
 
-    endGame.style.display = "block"
-    quizEl.style.display = "none"
-    console.log(scorePoints)
 
+     endGame.style.display = "block"
+     quizEl.style.display = "none"
+     console.log(scorePoints)
+
+     endScore.textContent = scorePoints
 
 }
+
+
 
 
 
