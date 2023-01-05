@@ -287,8 +287,35 @@ function endGame() {
 }
 
 
+var viewScores = document.querySelector("#view-highscores")
 
 
+
+function viewHighScores() {
+
+    var endGame = document.querySelector("#end-game")
+    var quizEl = document.querySelector(".quiz")
+    var endScore = document.querySelector("#end-score")
+
+
+     endGame.style.display = "block"
+     quizEl.style.display = "none"
+  
+
+
+
+}
+
+
+
+viewScores.addEventListener("click", function() {
+
+    viewHighScores()
+
+
+
+
+})
 
 
 

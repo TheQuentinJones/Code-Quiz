@@ -71,10 +71,11 @@ nav {
     display: none;
     background-color: #191919;
     color: white;
-    display: flex;
+    display: flexbox;
     align-items: center;
     justify-content: space-around;
-    
+    -ms-flex-align: center;
+    text-align: center;
     height: 92vh;
     width: 100vw;
 
