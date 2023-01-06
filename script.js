@@ -1,6 +1,7 @@
 // Time Interval
-
+var endQuiz = document.querySelector("#end-game")
 var timeLeft = document.querySelector("#time-left");
+var quizEl = document.querySelector(".quiz")
 
 var secondsLeft = 30;
 
@@ -37,10 +38,15 @@ var startGame = document.querySelector("#start-game")
 
 startGame.addEventListener("click", function () {
 
+    endQuiz.style.display = "none"
+    quizEl.style.display = "block"
+    
     secondsLeft = 30
     
     setTime()
     firstQuestion()
+
+
 
 }
 
@@ -273,12 +279,11 @@ function thirdQuestion() {
 
 function endGame() {
 
-    var endGame = document.querySelector("#end-game")
-    var quizEl = document.querySelector(".quiz")
+
     var endScore = document.querySelector("#end-score")
 
 
-     endGame.style.display = "block"
+     endQuiz.style.display = "block"
      quizEl.style.display = "none"
      console.log(scorePoints)
 
@@ -293,12 +298,12 @@ var viewScores = document.querySelector("#view-highscores")
 
 function viewHighScores() {
 
-    var endGame = document.querySelector("#end-game")
+    
     var quizEl = document.querySelector(".quiz")
     var endScore = document.querySelector("#end-score")
 
 
-     endGame.style.display = "block"
+     endQuiz.style.display = "block"
      quizEl.style.display = "none"
   
 
@@ -313,9 +318,39 @@ viewScores.addEventListener("click", function() {
     viewHighScores()
 
 
-
-
 })
+
+
+var buttonEl = document.querySelector("#submit-name")
+
+
+function submitButton(event) {
+
+    event.preventDefault()
+
+    var inputEl = document.querySelector("#fname")
+    var inputValue = inputEl.value
+    
+    console.log(inputValue)
+    console.log(scorePoints)
+
+    localStorage.setItem("Name", inputValue);
+    localStorage.setItem("Score", scorePoints);
+
+
+}
+
+
+
+buttonEl.addEventListener("click", function(event) {
+
+     
+    submitButton(event)
+    
+})
+
+
+
 
 
 
